@@ -1,14 +1,14 @@
 # HPOSim_Helper_Scripts
 
-##Helper scripts to create state-of-the-art HPO.db R package and hpodata.rda file, needed to run HPOSim
+## Helper scripts to create state-of-the-art HPO.db R package and hpodata.rda file, needed to run HPOSim
 
 HPOSim is an R package used to calculate similarities between sets of HPO terms. For that, it needs the HPO.db R package, and the hpodata.rda files, that are not updated since 2017, leaving several HPO terms and disease-gene-term associations out of the analysis.
 
 Here we designed scripts to create updated versions of these packages, allowing HPOSim to perform searches with state of the art data.
 
-##hpodata.rda creation
+## hpodata.rda creation
 
-###**Pre-requisites**
+### **Pre-requisites**
 * Python 3
 * Python 3 [sys module](https://docs.python.org/3/library/sys.html)
 * Python 3 [obonet module](https://pypi.org/project/obonet/)
@@ -16,7 +16,7 @@ Here we designed scripts to create updated versions of these packages, allowing 
 * State-of-the-art genes_to_phenotype.txt annotation file from [HPO](https://hpo.jax.org/app/download/annotation)
 * [R](https://www.r-project.org/)
 
-###Walk-through
+### Walk-through
 
 1. Download the genes_to_phenotype.txt file from HPO website
 2. Run:
@@ -28,9 +28,9 @@ Here we designed scripts to create updated versions of these packages, allowing 
 3. Run the R-script make_RDA.R on the same directory where the previously output files are located, or change their paths on the R-script. **The output of this script will be the  hpodata.rda file.** 
 
 
-##HPO.db creation
+## HPO.db creation
 
-###**Pre-requisites**
+### **Pre-requisites**
 
 * Python 3
 * Python 3 [sys module](https://docs.python.org/3/library/sys.html)
@@ -42,7 +42,7 @@ Here we designed scripts to create updated versions of these packages, allowing 
 * [R](https://www.r-project.org/)
 
 
-###Walk-through
+### Walk-through
 
 **Since we are only updating the data used by the package, in this walk-through its explained how to update the sqlite file of the package, leaving the rest untouched**
 
@@ -67,7 +67,7 @@ Here we designed scripts to create updated versions of these packages, allowing 
     (Inside R)
     `install.packages("/path to folder with the package/HPO.db_2.0.tar.gz", repos = NULL, type = "source")` 
 
-##Notes
+## Notes
 
 * After this process, one can normally install HPOSim and use it: HPO.db is already installed on the system, and the rda file is directly called on the script
 * This was designed as a "workaround" method to use HPOSim with state of the art data, nothing more. Nevertheless, its fair to assume that other uses of HPO.db package may  also work
