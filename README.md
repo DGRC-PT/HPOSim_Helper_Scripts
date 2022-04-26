@@ -67,6 +67,14 @@ Here we designed scripts to create updated versions of these packages, allowing 
     (Inside R)
     `install.packages("/path to folder with the package/HPO.db_2.0.tar.gz", repos = NULL, type = "source")` 
 
+### Create a manipulated Ancestors file (Optional)
+One must want to create an manipulator ancestors RDAta file to run SVInterpreter. This manipulated ancestors file, provides the ancestors of each term until 4 levels above.
+To create this file, the above steps must be performed first.
+Then:
+`Rscript create_new_ancestors.R`
+This will create a file - new_ancestors.Rdata - that must be loaded to R for use. after load, the containing data is under the list variable "new_list".
+
+
 ## Notes
 
 * After this process, one can normally install HPOSim and use it: HPO.db is already installed on the system, and the rda file is directly called on the script
