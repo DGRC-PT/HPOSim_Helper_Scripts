@@ -71,7 +71,9 @@ Here we designed scripts to create updated versions of these packages, allowing 
 One must want to create an manipulator ancestors RDAta file to run SVInterpreter. This manipulated ancestors file, provides the ancestors of each term until 4 levels above.
 To create this file, the above steps must be performed first.
 Then:
+
 `Rscript create_new_ancestors.R`
+
 This will create a file - new_ancestors.Rdata - that must be loaded to R for use. after load, the containing data is under the list variable "new_list".
 
 
