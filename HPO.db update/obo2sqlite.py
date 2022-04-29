@@ -55,7 +55,7 @@ def make_hpo_obsolete(infile):
 	HP:XXX:desc.Returns also an dictionary with the consider HPOs of
 	the obsoletes. returns a dic with the obsolete term as key and a list of
 	consider terms as value."""
-	f=open(infile)
+	f=open(infile, encoding="UTF8")
 	hpo_consider={}
 	is_obsolte=False
 	term=""
