@@ -92,7 +92,7 @@ This will create a file "IC_inhouse" that can be load into HPOSim in replacement
     `IC<-read.table("IC_inhouse", header = TRUE, stringsAsFactors = FALSE)`
 
 
-### Create a manipulated Ancestors file (Optional)
+## Create a manipulated Ancestors file (Optional)
 One must want to create an manipulator ancestors RDAta file to run SVInterpreter. This manipulated ancestors file, provides the ancestors of each term until 4 levels above.
 To create this file, the above steps must be performed first.
 Then:
