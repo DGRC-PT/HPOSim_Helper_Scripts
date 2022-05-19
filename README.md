@@ -66,6 +66,31 @@ Here we designed scripts to create updated versions of these packages, allowing 
 
     (Inside R)
     `install.packages("/path to folder with the package/HPO.db_2.0.tar.gz", repos = NULL, type = "source")` 
+    
+## Update the Information content (IC) data
+
+By default, even with the update of HPO.db, HPOSim seems to maintain its default IC data. 
+To surpass this, we developed a workaround, to create a table of ICs that can be easily loaded when using HPOSim.
+The IC of each term here is calculated as indicated by [Köhler et al, 2009](https://pubmed.ncbi.nlm.nih.gov/19800049/) : the negative natural logarithm of the ratio between the number of diseases annotated with the term and the total of anotated diseases.
+
+### Walk-through
+
+1. First, to create the list of each term's ancestors, run the Rscript:
+
+    `Rscript get_ancestors.R` 
+
+2. Then, using as input the genes_to_phenotype.txt file and the ancestors files created on the first step, run:
+
+    `python3.6 calc_IC.py gene_to_phenotype ancestors_list > IC_inhouse` 
+
+This will create a file "IC_inhouse" that can be load into HPOSim in replacement of their normal IC environmental variable.
+
+    (Inside R)
+    #Instead of 
+    `IC <- get("termIC", envir = HPOSimEnv)`
+    #Use
+    `IC<-read.table("IC_inhouse", header = TRUE, stringsAsFactors = FALSE)`
+
 
 ### Create a manipulated Ancestors file (Optional)
 One must want to create an manipulator ancestors RDAta file to run SVInterpreter. This manipulated ancestors file, provides the ancestors of each term until 4 levels above.
