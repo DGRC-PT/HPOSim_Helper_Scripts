@@ -1,0 +1,5 @@
+library("HPO.db")
+x<-as.list(HPOANCESTOR)
+sink("ancestor_list")
+print(x)
+sink()
