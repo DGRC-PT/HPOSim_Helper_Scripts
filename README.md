@@ -19,13 +19,14 @@ Here we designed scripts to create updated versions of these packages, allowing 
 ### Walk-through
 
 1. Download the genes_to_phenotype.txt file from HPO website
-2. Run:
+2. Download the phenotype_annotation.tab file of the same release, also available on the HPO website
+3. Run:
 
-    `python3 convert_to_prepare_rda.py genes_to_phenotype.txt phen_R disease_hpo disease_gene terms term_disease`
+    `python3 convert_to_prepare_rda.py genes_to_phenotype.txt phen_R disease_hpo disease_gene terms term_disease phenotype_annotation.tab`
 
     (phen_R, disease_hpo, disease_gene, terms, and term_disease are output files)
 
-3. Run the R-script make_RDA.R on the same directory where the previously output files are located, or change their paths on the R-script. **The output of this script will be the  hpodata.rda file.** 
+4. Run the R-script make_RDA.R on the same directory where the previously output files are located, or change their paths on the R-script. **The output of this script will be the  hpodata.rda file.** Note: create and use the RDA file with the same R version. Otherwise the file might not work. 
 
 
 ## HPO.db creation
