@@ -31,7 +31,21 @@ def read_disease_terms(infile):
 			dic[line[2]].add(line[8].strip())
 		dis_l.add(line[8].strip())
 	f.close()
-	return dic, float(len(dis_l))
+	return dic
+
+def count_diseases(infile):
+	aa=set()
+	f=open(infile)
+	f.readline()
+	f.readline()
+	f.readline()
+	f.readline()
+	f.readline()
+	for i in f:
+		line=i.split("\t")
+		aa.add(line[0])
+	f.close()
+	return len(aa)
 	
 def read_ancestors(infile):
 	"""reads the ancestors file. Creates and retrieves
@@ -90,8 +104,9 @@ def calc_IC(new_dis, sz):
 			IC=-1*math.log(float(len(value))/sz)
 			print("\t".join([key,"PA",str(IC)]))
 
-dic_disease, sz=read_disease_terms(argv[1])#gene_phenotype
-calc_IC(merge_ancestrals(dic_disease, read_ancestors(argv[2])),sz)#ancestors list
+dic_disease=read_disease_terms(argv[1])#gene_phenotype
+sz=count_diseases(argv[2])#phenotype.hpoa
+calc_IC(merge_ancestrals(dic_disease, read_ancestors(argv[3])),sz)#ancestors list
 
 
 	
